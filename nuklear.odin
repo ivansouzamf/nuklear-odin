@@ -1740,7 +1740,11 @@ Context :: struct
 
 when ODIN_OS == .Windows && ODIN_ARCH == .amd64
 {
-   foreign import nuklear "nuklear_windows_amd64.lib"
+   foreign import nuklear "windows/nuklear.lib"
+}
+else when ODIN_OS == .Linux && ODIN_ARCH == .amd64
+{
+   foreign import nuklear "linux/nuklear.a"
 }
 
 @(default_calling_convention="c", link_prefix="nk_")
